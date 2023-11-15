@@ -1,0 +1,126 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+#content {
+    display: grid;
+    grid-template: 1fr 8fr / 2fr 9fr ;
+    height: 100%;
+}
+
+#navBar {
+    background-color: rgb(228, 117, 117);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 20px 5px;
+    grid-column: 1 / 3;
+    align-items: center;
+
+    .bx{
+        font-size: 27px;
+    }
+
+    .navBarLeft {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+
+        .searchBar{
+            padding: 2px 10px;
+            border-radius: 6px;
+        }
+    }
+
+    .navBarRight {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+}
+
+#sideNav{
+    background-color: #edeaea;
+
+    .relevant {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+
+        i {
+            margin-right: 5px;
+            margin-left: 9px;
+        }
+    }
+}
+
+#main {
+    padding: 20px;
+}
+
+.addBtn {
+    padding: 0;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: red;
+    color: black;
+    font-size: 200%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addBtn input {
+    text-align: center;
+    line-height: normal;
+}
+
+.popup {
+    background-color: #ffdede;
+    padding: 40px 25px;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.1s ease;
+    visibility: visible;
+
+    #form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            input, button {
+                padding: 5px 7px;
+                border-radius: 8px;
+                padding: 5px 15px;
+            }
+        }
+    }
+}
+
+.popup.hidden {
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.1);
+}
+
