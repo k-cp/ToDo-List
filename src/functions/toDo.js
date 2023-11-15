@@ -7,19 +7,16 @@ const toDo = (() => {
         constructor(title, date) {
             this.title = title;
             this.date = date;
+            this.tasks = [];
         }
     }
 
 
-    function createToDO(){
+    function addEvent(){
         const  ewf = 4
     }
 
-    function editToDo(){
-        const  ewf = 4
-    }
-
-    function deleteToDo(){
+    function deleteEvent(){
         const  ewf = 4
     }
 

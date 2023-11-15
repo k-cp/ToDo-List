@@ -5,7 +5,7 @@ import loadUpcoming from "./upcoming";
 import loadSomeday from "./someday";
 import loadAnytime from "./anytime";
 import loadDone from "./done";
-import loadPopup from "../functions/popup";
+import popup from "../functions/popup";
 
 const createHome = function(){
     const home = document.getElementById('content');
@@ -102,7 +102,7 @@ const loadHome = function(){
     home.textContent = '';
     createHome();
     loadToday();
-    loadPopup();
+    popup.loadPopup();
 }
 
 export default loadHome
