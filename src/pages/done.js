@@ -1,23 +1,28 @@
 
+const done = (() => {
+    function createDone(){
 
-const createDone = function(){
+        const doneMain = document.createElement('div');
+        doneMain.classList.add('done');
+        const doneTitle = document.createElement('h2');
+        doneTitle.textContent = 'Done';
+        doneMain.appendChild(doneTitle);
+        const toDoList = document.createElement('div');
+        toDoList.classList.add('toDoList');
+        doneMain.appendChild(toDoList);
+    
+    
+        return doneMain
+    }
+    
+    function loadDone(){
+        const main = document.getElementById('main');
+        main.textContent = '';
+        main.appendChild(createDone());
+    }
 
-    const doneMain = document.createElement('div');
-    const doneTitle = document.createElement('h2');
-    doneTitle.textContent = 'Done';
-    doneMain.appendChild(doneTitle);
-    const toDoList = document.createElement('div');
-    toDoList.classList.add('toDoList');
-    doneMain.appendChild(toDoList);
+    return {loadDone}
+})()
 
 
-    return doneMain
-}
-
-const loadDone = function(){
-    const main = document.getElementById('main');
-    main.textContent = '';
-    main.appendChild(createDone());
-}
-
-export default loadDone
+export default done

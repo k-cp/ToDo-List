@@ -6,6 +6,7 @@ const popup = (() => {
         const popup = document.querySelector('.popup');
         event.preventDefault();
         popup.classList.toggle('hidden');
+        this.parentNode.parentNode.reset();
     }
     
     function createPopup(){
@@ -24,13 +25,15 @@ const popup = (() => {
         title.required = true;
         title.name = 'title';
         title.placeholder = 'Title';
+        title.id = 'title';
     
         const date = document.createElement('input');
         date.type = 'date'
         date.required = true;
         date.name = 'date';
         date.placeholder = 'Date';
-    
+        date.id = 'date';
+
         const titleLabel = document.createElement('label');
         titleLabel.setAttribute('for', 'title');
         titleLabel.textContent = 'Title';
@@ -62,11 +65,21 @@ const popup = (() => {
         form.addEventListener('submit', function (e){
             e.preventDefault();
             const formData = new FormData(e.target);
+            const popup = document.querySelector('.popup');
     
-            const event = new toDo.event(formData.get('title'), formData.get('date'));
-    
-            console.log(event)
-    
+            if (formData.get('date')) {
+                let newEvent = new toDo.datedEvent(formData.get('title'), formData.get('date'));
+                toDo.loadEventDiv(newEvent,this.parentNode.parentNode.childNodes[2].childNodes[0].classList[0]);
+            }
+            else {
+                let newEvent = new toDo.nonDatedEvent(formData.get('title'), formData.get('date'));
+                toDo.loadEventDiv(newEvent);
+            }
+
+            popup.classList.toggle('hidden');
+            this.reset();
+
+
         })
     
         popup.appendChild(formTitle);

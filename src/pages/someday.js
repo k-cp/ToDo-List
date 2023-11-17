@@ -1,23 +1,29 @@
 
+const somdeday = (() => {
+    function createSomeday (){
 
-const createSomeday = function(){
+        const somedayMain = document.createElement('div');
+        somedayMain.classList.add('someday');
+        const somedayTitle = document.createElement('h2');
+        somedayTitle.textContent = 'Someday';
+        somedayMain.appendChild(somedayTitle);
+        const toDoList = document.createElement('div');
+        toDoList.classList.add('toDoList');
+        somedayMain.appendChild(toDoList);
+    
+    
+        return somedayMain
+    }
+    
+    function loadSomeday(){
+        const main = document.getElementById('main');
+        main.textContent = '';
+        main.appendChild(createSomeday());
+    }
 
-    const somedayMain = document.createElement('div');
-    const somedayTitle = document.createElement('h2');
-    somedayTitle.textContent = 'Someday';
-    somedayMain.appendChild(somedayTitle);
-    const toDoList = document.createElement('div');
-    toDoList.classList.add('toDoList');
-    somedayMain.appendChild(toDoList);
+    return {loadSomeday}
+})()
 
 
-    return somedayMain
-}
 
-const loadSomeday = function(){
-    const main = document.getElementById('main');
-    main.textContent = '';
-    main.appendChild(createSomeday());
-}
-
-export default loadSomeday
+export default somdeday
